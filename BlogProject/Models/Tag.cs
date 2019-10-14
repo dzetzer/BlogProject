@@ -7,5 +7,6 @@ namespace BlogProject.Models
 {
     public class Tag
     {
+        public int ID { get; set; }
     }
 }

@@ -12,6 +12,10 @@ namespace BlogProject.Models
         public string Author { get; set; }
         public DateTime PublishDate { get; set; }
 
+        public virtual ICollection<Tag> Tags { get; set; }
+
+        public virtual Category Category { get; set; }
+
         public Post()
         {
 

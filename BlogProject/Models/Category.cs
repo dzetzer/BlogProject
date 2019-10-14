@@ -7,5 +7,6 @@ namespace BlogProject.Models
 {
     public class Category
     {
+        public int ID { get; set; }
     }
 }
