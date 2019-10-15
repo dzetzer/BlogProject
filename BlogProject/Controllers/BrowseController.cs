@@ -8,7 +8,7 @@ namespace BlogProject.Controllers
 {
     public class BrowseController : Controller
     {
-        public IActionResult Index()
+        public ViewResult Index()
         {
             return View();
         }

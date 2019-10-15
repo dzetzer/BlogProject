@@ -8,7 +8,7 @@ namespace BlogProject.Controllers
 {
     public class PostController : Controller
     {
-        public IActionResult Index()
+        public ViewResult Index()
         {
             return View();
         }

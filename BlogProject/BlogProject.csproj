@@ -6,7 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Views\Browse\" />
-    <Folder Include="wwwroot\" />
+    <Folder Include="Views\Post\" />
+    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
   <ItemGroup>

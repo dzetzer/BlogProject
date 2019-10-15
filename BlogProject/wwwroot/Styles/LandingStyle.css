@@ -1,0 +1,51 @@
+﻿html
+{
+    background-color : cadetblue;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+
+    padding: 5rem;
+    padding-left: 20%;
+    padding-right: 20%;
+    margin: 2rem;
+    border-radius: 3rem;
+
+    background-color: aquamarine;
+}
+
+#title h1 
+{
+    display: flex;
+    justify-content: center;
+
+    font-size: 8rem;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#enter 
+{
+    display: flex;
+    justify-content: center;
+
+    padding: 5rem;
+    padding-left: 20%;
+    padding-right: 20%;
+    margin: 2rem;
+    border-radius: 3rem;
+    background-color: aqua;
+}
+
+#enter a 
+{
+    display: flex;
+    justify-content: center;
+}
+
+#enter :hover 
+{
+    background-color: aquamarine;
+}
