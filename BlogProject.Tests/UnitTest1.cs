@@ -6,9 +6,9 @@ namespace BlogProject.Tests
     public class BlogProjectTests
     {
         [Fact]
-        public void Test1()
+        public void TODO()
         {
-
+            Assert.True(false);
         }
     }
 }

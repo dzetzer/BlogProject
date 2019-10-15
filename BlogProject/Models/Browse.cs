@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace BlogProject.Models
 {
-    public class Category
+    public class Browse
     {
-        public string Name { get; set; }
-        public string Posts { get; set; }
+
     }
 }
