@@ -11,6 +11,6 @@ namespace BlogProject.Models
         [Key] public int TagId { get; set; }
         public string Name { get; set; }
 
-        public IList<PostTag> PostTags { get; set; }
+        public virtual IList<PostTag> PostTags { get; set; }
     }
 }

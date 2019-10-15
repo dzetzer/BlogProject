@@ -11,6 +11,6 @@ namespace BlogProject.Models
         [Key] public int CategoryId { get; set; }
         public string Name { get; set; }
 
-        public IList<Post> Posts { get; set; }
+        public virtual IList<Post> Posts { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace BlogProject.Models
         public string Author { get; set; }
         public DateTime PublishDate { get; set; }
 
-        public IList<PostTag> PostTags { get; set; }
+        public virtual IList<PostTag> PostTags { get; set; }
 
         [ForeignKey("CategoryId")] public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
