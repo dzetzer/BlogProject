@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,9 @@ namespace BlogProject.Models
 {
     public class Tag
     {
-        public int ID { get; set; }
+        [Key] public int TagId { get; set; }
+        public string Name { get; set; }
+
+        public IList<PostTag> PostTags { get; set; }
     }
 }
