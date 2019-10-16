@@ -13,8 +13,5 @@ namespace BlogProject.Repositories
         void Create(T obj);
         void Delete(T obj);
         void Edit(T obj);
-
-        IEnumerable<T> GetByProductID(int id);
-
     }
 }

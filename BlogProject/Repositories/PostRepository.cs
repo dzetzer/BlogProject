@@ -48,9 +48,14 @@ namespace BlogProject.Repositories
             return db.Posts.Single(p => p.PostId == id);
         }
 
-        public IEnumerable<Post> GetByProductID(int id)
+        public IList<Post> GetByCategoryId(int id)
         {
-            throw new NotImplementedException();
+            return db.Posts.Where(p => p.CategoryId == id).ToList();
+        }
+
+        public IList<Post> GetByTagId(int id)
+        {
+            return db.Posts.Where().ToList();
         }
 
         public void Save()
