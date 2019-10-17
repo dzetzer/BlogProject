@@ -24,12 +24,12 @@ namespace BlogProject.Models
         {
 
         }
-        public Post(string title, string body, string author, DateTime publishDate)
+        public Post(string title, string body, string author)
         {
             Title = title;
             Body = body;
             Author = author;
-            PublishDate = publishDate;
+            PublishDate = DateTime.Now;
         }
     }
 }
