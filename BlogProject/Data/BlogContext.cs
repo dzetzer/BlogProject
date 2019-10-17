@@ -30,15 +30,20 @@ namespace BlogProject
         {
             modelBuilder.Entity<PostTag>().HasKey(pt => new { pt.PostId, pt.TagId });
 
-            modelBuilder.Entity<Post>().HasData(
-                // Seeding Title, Body, Author, PublishDate (leaving red squiggle for now)
-                new Post("Loving My New Dog!", "My new dog rocks.", "Jane D") { PostId = 1});
+            modelBuilder.Entity<Post>().HasData
+                (
+                    new Post("Loving My New Dog!", "My new dog rocks.", "Jane D", 1,1)
+                );
 
-            modelBuilder.Entity<Category>().HasData(
-                new Category(1,"TestCategory"));
+            modelBuilder.Entity<Category>().HasData
+                (
+                    new Category(1,"TestCategory")
+                );
 
-            modelBuilder.Entity<Tag>().HasData(
-                new Tag(1,"TestTag"));
+            modelBuilder.Entity<Tag>().HasData
+                (
+                    new Tag(1,"TestTag")
+                );
         }
     }
 }

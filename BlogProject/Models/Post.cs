@@ -24,12 +24,14 @@ namespace BlogProject.Models
         {
 
         }
-        public Post(string title, string body, string author)
+        public Post(string title, string body, string author, int PostId, int CategoryId)
         {
             Title = title;
             Body = body;
             Author = author;
             PublishDate = DateTime.Now;
+            this.PostId = PostId;
+            this.CategoryId = CategoryId;
         }
     }
 }

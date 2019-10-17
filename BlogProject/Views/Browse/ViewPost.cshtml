@@ -1,0 +1,28 @@
+﻿@model BlogProject.Models.Post
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewPost</title>
+</head>
+<body>
+    <article>
+        <h2 id="postTitle">@Model.Title</h2>
+        <h3 id="postAuthor">@Model.Author</h3>
+        <h3 id="postDate">@Model.PublishDate</h3>
+        <h3 id="postCategory">@Model.Category.Name</h3>
+        <p id="postBody">@Model.Body</p>
+        <section id="tags">
+            @foreach (var postTag in Model.PostTags)
+            {
+                <p id="postTag">@postTag.Tag.Name</p>
+            }
+        </section>
+    </article>
+</body>
+</html>
