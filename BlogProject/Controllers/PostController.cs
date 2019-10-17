@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlogProject.Models;
 using BlogProject.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,10 @@ namespace BlogProject.Controllers
 {
     public class PostController : Controller
     {
-        PostRepository postRepo;
-        CategoryRepository categoryRepo;
+        IRepository<Post> postRepo;
+        IRepository<Category> categoryRepo;
 
-        public PostController(PostRepository postRepo, CategoryRepository categoryRepo)
+        public PostController(IRepository<Post> postRepo, IRepository<Category> categoryRepo)
         {
             this.postRepo = postRepo;
             this.categoryRepo = categoryRepo;

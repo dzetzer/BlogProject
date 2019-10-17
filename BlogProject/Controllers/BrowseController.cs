@@ -10,10 +10,10 @@ namespace BlogProject.Controllers
 {
     public class BrowseController : Controller
     {
-        PostRepository postRepo;
-        CategoryRepository categoryRepo;
+        IRepository<Post> postRepo;
+        IRepository<Category> categoryRepo;
 
-        public BrowseController(PostRepository postRepo, CategoryRepository categoryRepo)
+        public BrowseController(IRepository<Post> postRepo, IRepository<Category> categoryRepo)
         {
             this.postRepo = postRepo;
             this.categoryRepo = categoryRepo;
@@ -29,14 +29,16 @@ namespace BlogProject.Controllers
         public ViewResult BrowseByCategory(int CategoryId)
         {
             ViewBag.Categories = categoryRepo.GetAll();
-            var model = postRepo.GetByCategoryId(CategoryId);
+            PostRepository postRepoChild = postRepo as PostRepository;
+            var model = postRepoChild.GetByCategoryId(CategoryId);
             return View(model);
         }
 
         public ViewResult BrowseByTag(int TagId)
         {
             ViewBag.Categories = categoryRepo.GetAll();
-            var model = postRepo.GetByTagId(TagId);
+            PostRepository postRepoChild = postRepo as PostRepository;
+            var model = postRepoChild.GetByTagId(TagId);
             return View(model);
         }
     }
