@@ -11,6 +11,17 @@ namespace BlogProject.Models
         [Key] public int CategoryId { get; set; }
         public string Name { get; set; }
 
-        public virtual IList<Post> Posts { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
+
+        public Category()
+        {
+
+        }
+
+        public Category(int CategoryId, string Name)
+        {
+            this.CategoryId = CategoryId;
+            this.Name = Name;
+        }
     }
 }

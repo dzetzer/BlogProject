@@ -30,6 +30,10 @@ namespace BlogProject.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new { CategoryId = 1, Name = "TestCategory" }
+                    );
                 });
 
             modelBuilder.Entity("BlogProject.Models.Post", b =>
@@ -53,6 +57,10 @@ namespace BlogProject.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Posts");
+
+                    b.HasData(
+                        new { PostId = 1, Author = "Jane D", Body = "My new dog rocks.", CategoryId = 0, PublishDate = new DateTime(2019, 10, 17, 7, 53, 31, 110, DateTimeKind.Local), Title = "Loving My New Dog!" }
+                    );
                 });
 
             modelBuilder.Entity("BlogProject.Models.PostTag", b =>
@@ -79,6 +87,10 @@ namespace BlogProject.Migrations
                     b.HasKey("TagId");
 
                     b.ToTable("Tags");
+
+                    b.HasData(
+                        new { TagId = 1, Name = "TestTag" }
+                    );
                 });
 
             modelBuilder.Entity("BlogProject.Models.Post", b =>

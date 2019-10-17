@@ -12,5 +12,16 @@ namespace BlogProject.Models
         public string Name { get; set; }
 
         public virtual IList<PostTag> PostTags { get; set; }
+
+        public Tag()
+        {
+
+        }
+
+        public Tag(int TagId, string Name)
+        {
+            this.TagId = TagId;
+            this.Name = Name;
+        }
     }
 }
