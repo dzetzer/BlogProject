@@ -55,7 +55,7 @@ namespace BlogProject.Repositories
 
         public IList<Post> GetByTagId(int id)
         {
-            return db.Posts.Where().ToList();
+            return db.Posts.Where(p => p.CategoryId == id).ToList();
         }
 
         public void Save()
