@@ -12,7 +12,7 @@ namespace BlogProject.Tests
 {
     public class BrowseControllerTests
     {
-        BrowseController underTest;
+        public BrowseController underTest;
         IRepository<Post> PostRepo;
 
         public BrowseControllerTests()
@@ -21,12 +21,18 @@ namespace BlogProject.Tests
             underTest = new BrowseController(PostRepo);
         }
 
+        //public ViewResult ViewPost(int id)
+        //{
+        //    var model = postRepo.GetByID(id);
+        //    return View(model);
+        //}
+
         [Fact]
         public void Browse_Returns_A_View()
         {
-            var result = underTest.Browse();
+            var model = underTest.GetbyID();
 
-            Assert.IsType<ViewResult>(result);
+            Assert.IsType<ViewResult>(model);
         }
 
         [Fact]
@@ -41,22 +47,13 @@ namespace BlogProject.Tests
         }
 
         [Fact]
-        public void ViewPost_Returns_A_View()
-        {
-            var result = underTest.ViewPost(1);
+      
 
-            Assert.IsType<ViewResult>(result);
-        }
+            //CategoryRepo = Substitute.For<IRepository<Category>>();
+            //underTest = new BrowseController(CategoryRepo);
 
-        [Fact]
-        public void ViewPost_Passes_Post_To_View()
-        {
-            var expectedPost = new Post();
-            PostRepo.GetByID(1).Returns(expectedPost);
-
-            var result = underTest.Post(1);
-
-            Assert.Equal(expectedPost, result.Model);
+            //Public BrowseController underTest;
+            //IRepository<Category> CategoryRepo;
         }
 
     }
