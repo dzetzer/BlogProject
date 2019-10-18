@@ -33,6 +33,11 @@ namespace BlogProject.Controllers
             return View(model);
         }
 
+        public object GetbyID()
+        {
+            throw new NotImplementedException();
+        }
+
         public ActionResult BrowseByCategory(int id)
         {
             ViewBag.Categories = categoryRepo.GetAll();
