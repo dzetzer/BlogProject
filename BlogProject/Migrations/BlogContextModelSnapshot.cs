@@ -59,7 +59,7 @@ namespace BlogProject.Migrations
                     b.ToTable("Posts");
 
                     b.HasData(
-                        new { PostId = 1, Author = "Jane D", Body = "My new dog rocks.", CategoryId = 0, PublishDate = new DateTime(2019, 10, 17, 7, 53, 31, 110, DateTimeKind.Local), Title = "Loving My New Dog!" }
+                        new { PostId = 1, Author = "Jane D", Body = "My new dog rocks.", CategoryId = 1, PublishDate = new DateTime(2019, 10, 18, 6, 38, 55, 437, DateTimeKind.Local), Title = "Loving My New Dog!" }
                     );
                 });
 
