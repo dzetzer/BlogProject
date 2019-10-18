@@ -9,7 +9,7 @@ namespace BlogProject.Tests
     {
         //{
         //    BlogController underTest;
-        //    IRepository<Blog> coffeeRepo;
+        //    IRepository<Blog> Repo;
 
         //    public CoffeeControllerTests()
         //    {
