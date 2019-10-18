@@ -19,6 +19,12 @@ namespace BlogProject.Controllers
             this.categoryRepo = categoryRepo;
         }
 
+        public ViewResult ViewPost(int postId)
+        {
+            var model = postRepo.GetByID(postId);
+            return View(model);
+        }
+
         public ViewResult Browse()
         {
             ViewBag.Categories = categoryRepo.GetAll();

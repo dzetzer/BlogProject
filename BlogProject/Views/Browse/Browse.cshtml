@@ -12,7 +12,7 @@
 </head>
 <body>
     <nav>
-        <article><a href="">New Post</a></article>
+        <article><a href="/Post/Create">New Post</a></article>
         <section>
             @foreach (var category in ViewBag.Categories)
             {
@@ -23,19 +23,21 @@
     <div>
         @foreach (var post in Model)
         {
-            <article>
-                <h2 id="postTitle">@post.Title</h2>
-                <h3 id="postAuthor">@post.Author</h3>
-                <h3 id="postDate">@post.PublishDate</h3>
-                <h3 id="postCategory">@post.Category.Name</h3>
-                <p id="postBody">@post.Body</p>
-                <section id="tags">
-                    @foreach (var postTag in post.PostTags)
-                    {
-                        <p id="postTag">@postTag.Tag.Name</p>
-                    }
-                </section>
-            </article>
+            <a href="ViewPost/@post.PostId">
+                <article>
+                    <h2 id="postTitle">@post.Title</h2>
+                    <h3 id="postAuthor">@post.Author</h3>
+                    <h3 id="postDate">@post.PublishDate</h3>
+                    <h3 id="postCategory">@post.Category.Name</h3>
+                    <p id="postBody">@post.Body</p>
+                    <section id="tags">
+                        @foreach (var postTag in post.PostTags)
+                        {
+                            <p id="postTag">@postTag.Tag.Name</p>
+                        }
+                    </section>
+                </article>
+            </a>
        }
     </div>
 </body>
