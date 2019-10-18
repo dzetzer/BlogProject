@@ -31,7 +31,7 @@ namespace BlogProject.Controllers
         {
             post.PublishDate = DateTime.Now;
             postRepo.Create(post);
-            return RedirectToAction("Browse","Browse");
+            return RedirectToAction("BrowseAll","Browse");
         }
     }
 }

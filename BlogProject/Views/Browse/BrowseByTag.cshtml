@@ -1,0 +1,44 @@
+﻿@model IList<BlogProject.Models.Post>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Browse</title>
+</head>
+<body>
+    <nav>
+        <article><a href="/Post/Create">New Post</a></article>
+        <section>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <article><a href="BrowseByCategory/@category.CategoryId">@category.Name</a></article>
+            }
+        </section>
+    </nav>
+    <div>
+        @foreach (var post in Model)
+        {
+            <a href="ViewPost/@post.PostId">
+                <article>
+                    <h2 id="postTitle">@post.Title</h2>
+                    <h3 id="postAuthor">@post.Author</h3>
+                    <h3 id="postDate">@post.PublishDate</h3>
+                    <h3 id="postCategory">@post.Category.Name</h3>
+                    <p id="postBody">@post.Body</p>
+                    <section id="tags">
+                        @foreach (var postTag in post.PostTags)
+                        {
+                            <p id="postTag">@postTag.Tag.Name</p>
+                        }
+                    </section>
+                </article>
+            </a>
+        }
+    </div>
+</body>
+</html>

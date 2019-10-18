@@ -16,7 +16,7 @@
         <section>
             @foreach (var category in ViewBag.Categories)
             {
-                <article><a>@category.Name</a></article>
+                <article><a href="BrowseByCategory/@category.CategoryId">@category.Name</a></article>
             }
         </section>
     </nav>
