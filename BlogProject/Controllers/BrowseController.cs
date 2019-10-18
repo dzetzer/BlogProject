@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BlogProject.Models;
 using BlogProject.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 
 namespace BlogProject.Controllers
 {
@@ -19,14 +20,20 @@ namespace BlogProject.Controllers
             this.categoryRepo = categoryRepo;
         }
 
-        public ViewResult Browse()
+        public ViewResult ViewPost(int postId)
+        {
+            var model = postRepo.GetByID(postId);
+            return View(model);
+        }
+
+        public ActionResult BrowseAll()
         {
             ViewBag.Categories = categoryRepo.GetAll();
             var model = postRepo.GetAll();
             return View(model);
         }
 
-        public ViewResult BrowseByCategory(int CategoryId)
+        public ActionResult BrowseByCategory(int CategoryId)
         {
             ViewBag.Categories = categoryRepo.GetAll();
             PostRepository postRepoChild = postRepo as PostRepository;
@@ -34,7 +41,7 @@ namespace BlogProject.Controllers
             return View(model);
         }
 
-        public ViewResult BrowseByTag(int TagId)
+        public ActionResult BrowseByTag(int TagId)
         {
             ViewBag.Categories = categoryRepo.GetAll();
             PostRepository postRepoChild = postRepo as PostRepository;

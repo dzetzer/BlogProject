@@ -63,7 +63,7 @@ namespace BlogProject.Repositories
                 IList<PostTag> postTags = post.PostTags.ToList();
                 foreach (PostTag postTag in postTags)
                 {
-                    //if (postTag.Post.PostId == id) postListReturn.Add();
+                    if (postTag.Post.PostId == id) postListReturn.Add(postTag.Post);
                 }
             }
             return postListReturn;
