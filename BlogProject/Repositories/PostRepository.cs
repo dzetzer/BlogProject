@@ -55,7 +55,18 @@ namespace BlogProject.Repositories
 
         public IList<Post> GetByTagId(int id)
         {
-            return db.Posts.Where(p => p.CategoryId == id).ToList();
+            IList<Post> postListReturn = new List<Post>();
+
+            IList<Post> allPosts = db.Posts.ToList();
+            foreach (Post post in allPosts)
+            {
+                IList<PostTag> postTags = post.PostTags.ToList();
+                foreach (PostTag postTag in postTags)
+                {
+                    //if (postTag.Post.PostId == id) postListReturn.Add();
+                }
+            }
+            return postListReturn;
         }
 
         public void Save()

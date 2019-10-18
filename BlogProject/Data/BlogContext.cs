@@ -44,6 +44,7 @@ namespace BlogProject
                 (
                     new Tag(1,"TestTag")
                 );
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

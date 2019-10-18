@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogProject.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    [Migration("20191017185334_FirstMigration")]
+    [Migration("20191018173856_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,7 +61,7 @@ namespace BlogProject.Migrations
                     b.ToTable("Posts");
 
                     b.HasData(
-                        new { PostId = 1, Author = "Jane D", Body = "My new dog rocks.", CategoryId = 0, PublishDate = new DateTime(2019, 10, 17, 7, 53, 31, 110, DateTimeKind.Local), Title = "Loving My New Dog!" }
+                        new { PostId = 1, Author = "Jane D", Body = "My new dog rocks.", CategoryId = 1, PublishDate = new DateTime(2019, 10, 18, 6, 38, 55, 437, DateTimeKind.Local), Title = "Loving My New Dog!" }
                     );
                 });
 
