@@ -20,9 +20,9 @@ namespace BlogProject.Controllers
             this.categoryRepo = categoryRepo;
         }
 
-        public ViewResult ViewPost(int postId)
+        public ViewResult ViewPost(int id)
         {
-            var model = postRepo.GetByID(postId);
+            var model = postRepo.GetByID(id);
             return View(model);
         }
 
@@ -33,19 +33,19 @@ namespace BlogProject.Controllers
             return View(model);
         }
 
-        public ActionResult BrowseByCategory(int CategoryId)
+        public ActionResult BrowseByCategory(int id)
         {
             ViewBag.Categories = categoryRepo.GetAll();
             PostRepository postRepoChild = postRepo as PostRepository;
-            var model = postRepoChild.GetByCategoryId(CategoryId);
+            var model = postRepoChild.GetByCategoryId(id);
             return View(model);
         }
 
-        public ActionResult BrowseByTag(int TagId)
+        public ActionResult BrowseByTag(int id)
         {
             ViewBag.Categories = categoryRepo.GetAll();
             PostRepository postRepoChild = postRepo as PostRepository;
-            var model = postRepoChild.GetByTagId(TagId);
+            var model = postRepoChild.GetByTagId(id);
             return View(model);
         }
     }
