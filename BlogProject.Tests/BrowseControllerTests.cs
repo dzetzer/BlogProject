@@ -1,61 +1,63 @@
-﻿using System;
+﻿using BlogProject.Controllers;
+using BlogProject.Models;
+using BlogProject.Repositories;
+using Microsoft.AspNetCore.Mvc;
+using NSubstitute;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-//namespace BlogProject.Tests
-//{
-//    public class BlogControllerTests
-//    {
+namespace BlogProject.Tests
+{
+    public class BrowseControllerTests
+    {
+        BrowseController underTest;
+        IRepository<Post> PostRepo;
 
-//        BlogController underTest;
-//        IRepository<Blog> Repo;
+        public BrowseControllerTests()
+        {
+            PostRepo = Substitute.For<IRepository<Post>>();
+            underTest = new BrowseController(PostRepo);
+        }
 
+        [Fact]
+        public void Browse_Returns_A_View()
+        {
+            var result = underTest.Browse();
 
-//        public CoffeeControllerTests()
-//        {
-//            coffeeRepo = Substitute.For<IRepository<Coffee>>();
-//            underTest = new CoffeeController(coffeeRepo);
-//        }
+            Assert.IsType<ViewResult>(result);
+        }
 
+        [Fact]
+        public void BrowseAll_Passes_All_Posts_To_View()
+        {
+            var expectedPost = new List<Post>();
+            PostRepo.GetAll().Returns(expectedPost);
 
-//        [Fact]
-//        public void Index_Returns_A_View()
-//        {
-//            var result = underTest.Index();
+            var result = underTest.BrowseAll();
 
-//            Assert.IsType<ViewResult>(result);
-//        }
+            Assert.Equal(expectedPost, result.Model);
+        }
 
-//        [Fact]
-//        public void Index_Passes_All_Coffees_To_View()
-//        {
-//            var expectedCoffees = new List<Coffee>();
-//            coffeeRepo.GetAll().Returns(expectedCoffees);
+        [Fact]
+        public void ViewPost_Returns_A_View()
+        {
+            var result = underTest.ViewPost(1);
 
-//            var result = underTest.Index();
+            Assert.IsType<ViewResult>(result);
+        }
 
-//            Assert.Equal(expectedCoffees, result.Model);
-//        }
+        [Fact]
+        public void ViewPost_Passes_Post_To_View()
+        {
+            var expectedPost = new Post();
+            PostRepo.GetByID(1).Returns(expectedPost);
 
-//        [Fact]
-//        public void Details_Returns_A_View()
-//        {
-//            var result = underTest.Details(1);
+            var result = underTest.Post(1);
 
-//            Assert.IsType<ViewResult>(result);
-//        }
+            Assert.Equal(expectedPost, result.Model);
+        }
 
-//        [Fact]
-//        public void Details_Passes_Course_To_View()
-//        {
-//            var expectedCoffee = new Coffee();
-//            coffeeRepo.GetById(1).Returns(expectedCoffee);
-
-//            var result = underTest.Details(1);
-
-//            Assert.Equal(expectedCoffee, result.Model);
-//        }
-
-//    }
-//}
+    }
+}
