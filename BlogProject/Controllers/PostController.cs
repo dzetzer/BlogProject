@@ -37,6 +37,7 @@ namespace BlogProject.Controllers
         [HttpGet]
         public ViewResult Edit(int id)
         {
+            ViewBag.Categories = categoryRepo.GetAll();
             var model = postRepo.GetByID(id);
             return View(model);
         }
