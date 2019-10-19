@@ -13,9 +13,11 @@ namespace BlogProject.Controllers
     {
         IRepository<Post> postRepo;
         IRepository<Category> categoryRepo;
+        IRepository<Tag> tagRepo;
 
-        public BrowseController(IRepository<Post> postRepo, IRepository<Category> categoryRepo)
+        public BrowseController(IRepository<Post> postRepo, IRepository<Category> categoryRepo, IRepository<Tag> tagRepo)
         {
+            this.tagRepo = tagRepo;
             this.postRepo = postRepo;
             this.categoryRepo = categoryRepo;
         }
@@ -28,6 +30,7 @@ namespace BlogProject.Controllers
 
         public ActionResult BrowseAll()
         {
+            ViewBag.Tags = tagRepo.GetAll();
             ViewBag.Categories = categoryRepo.GetAll();
             var model = postRepo.GetAll();
             return View(model);
@@ -40,6 +43,7 @@ namespace BlogProject.Controllers
 
         public ActionResult BrowseByCategory(int id)
         {
+            ViewBag.Tags = tagRepo.GetAll();
             ViewBag.Categories = categoryRepo.GetAll();
             PostRepository postRepoChild = postRepo as PostRepository;
             var model = postRepoChild.GetByCategoryId(id);
@@ -48,6 +52,7 @@ namespace BlogProject.Controllers
 
         public ActionResult BrowseByTag(int id)
         {
+            ViewBag.Tags = tagRepo.GetAll();
             ViewBag.Categories = categoryRepo.GetAll();
             PostRepository postRepoChild = postRepo as PostRepository;
             var model = postRepoChild.GetByTagId(id);

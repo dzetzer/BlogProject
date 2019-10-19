@@ -19,6 +19,12 @@
                 <article><a href="BrowseByCategory/@category.CategoryId">@category.Name</a></article>
             }
         </section>
+        <section>
+            @foreach (var tag in ViewBag.Tags)
+            {
+                <article><a href="BrowseByTag/@tag.TagId">@tag.Name</a></article>
+            }
+        </section>
     </nav>
     <div>
         @foreach (var post in Model)
