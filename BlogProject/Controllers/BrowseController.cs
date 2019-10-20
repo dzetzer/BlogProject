@@ -13,13 +13,7 @@ namespace BlogProject.Controllers
     {
         IRepository<Post> postRepo;
         IRepository<Category> categoryRepo;
-<<<<<<< HEAD
-        private IRepository<Post> postRepo1;
-        private IRepository<Category> categoryRepo1;
-        private IRepository<Tag> tagRepo;
-=======
         IRepository<Tag> tagRepo;
->>>>>>> f07e1ab59a7712737d0739697931bf4d367b923e
 
         public BrowseController(IRepository<Post> postRepo, IRepository<Category> categoryRepo, IRepository<Tag> tagRepo)
         {
@@ -31,21 +25,6 @@ namespace BlogProject.Controllers
         public object GetbyCategoryID()
         {
             throw new NotImplementedException();
-        }
-
-        public BrowseController(IRepository<Post> postRepo1)
-        {
-            this.postRepo1 = postRepo1;
-        }
-
-        public BrowseController(IRepository<Category> categoryRepo1)
-        {
-            this.categoryRepo1 = categoryRepo1;
-        }
-
-        public BrowseController(IRepository<Tag> tagRepo)
-        {
-            this.tagRepo = tagRepo;
         }
 
         public ViewResult ViewPost(int id)
