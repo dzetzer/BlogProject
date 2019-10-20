@@ -27,11 +27,34 @@ namespace BlogProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Models.Post post)
+        public ActionResult Create(Post post)
         {
             post.PublishDate = DateTime.Now;
             postRepo.Create(post);
             return RedirectToAction("BrowseAll","Browse");
+        }
+
+        [HttpGet]
+        public ViewResult Edit(int id)
+        {
+            ViewBag.Categories = categoryRepo.GetAll();
+            var model = postRepo.GetByID(id);
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit(Post post)
+        {
+            post.PublishDate = DateTime.Now;
+            postRepo.Edit(post);
+            return RedirectToAction("BrowseAll", "Browse");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            postRepo.Delete(postRepo.GetByID(id));
+            return RedirectToAction("BrowseAll", "Browse");
         }
     }
 }

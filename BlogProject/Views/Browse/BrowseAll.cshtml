@@ -19,6 +19,12 @@
                 <article><a href="BrowseByCategory/@category.CategoryId">@category.Name</a></article>
             }
         </section>
+        <section>
+            @foreach (var tag in ViewBag.Tags)
+            {
+                <article><a href="BrowseByTag/@tag.TagId">@tag.Name</a></article>
+            }
+        </section>
     </nav>
     <div>
         @foreach (var post in Model)
@@ -36,6 +42,12 @@
                             <p id="postTag">@postTag.Tag.Name</p>
                         }
                     </section>
+                    <form action="/Post/Edit/@post.PostId" method="get">
+                        <input type="submit" value="Edit" />
+                    </form>
+                    <form action="/Post/Delete/@post.PostId" method="post">
+                        <input type="submit" value="Delete" />
+                    </form>
                 </article>
             </a>
        }
