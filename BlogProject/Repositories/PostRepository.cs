@@ -48,6 +48,11 @@ namespace BlogProject.Repositories
             return db.Posts.Single(p => p.PostId == id);
         }
 
+        public static object GetByID()
+        {
+            throw new NotImplementedException();
+        }
+
         public IList<Post> GetByCategoryId(int id)
         {
             return db.Posts.Where(p => p.CategoryId == id).ToList();

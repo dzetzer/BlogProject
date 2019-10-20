@@ -13,11 +13,17 @@ namespace BlogProject.Controllers
     {
         IRepository<Post> postRepo;
         IRepository<Category> categoryRepo;
+        private IRepository<Post> postRepo1;
 
         public BrowseController(IRepository<Post> postRepo, IRepository<Category> categoryRepo)
         {
             this.postRepo = postRepo;
             this.categoryRepo = categoryRepo;
+        }
+
+        public BrowseController(IRepository<Post> postRepo1)
+        {
+            this.postRepo1 = postRepo1;
         }
 
         public ViewResult ViewPost(int id)
