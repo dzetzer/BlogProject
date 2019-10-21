@@ -9,7 +9,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Browse</title>
-    <link rel="stylesheet" href="~/Styles/StyleSheet.css" />
+    <link rel="stylesheet" href="~/Styles/Browse.css" />
 </head>
 <body>
     <nav>
@@ -28,11 +28,11 @@
             }
         </section>
     </nav>
-    <div>
+    <div id="body">
         @foreach (var post in Model)
         {
             <a href="ViewPost/@post.PostId">
-                <article>
+                <article class="post">
                     <h2 id="postTitle">@post.Title</h2>
                     <h3 id="postAuthor">@post.Author</h3>
                     <h3 id="postDate">@post.PublishDate</h3>
