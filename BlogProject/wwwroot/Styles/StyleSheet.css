@@ -1,2 +1,12 @@
-﻿body {
+﻿html {
+    background-color: cadetblue;
+}
+
+footer {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 32px;
+    background: #666;
+    color: #fff;
+    padding: 16px 0;
 }

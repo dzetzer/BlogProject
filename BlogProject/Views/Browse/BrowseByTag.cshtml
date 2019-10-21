@@ -9,6 +9,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Browse</title>
+    <link rel="stylesheet" href="~/Styles/StyleSheet.css" />
 </head>
 <body>
     <nav>
@@ -29,28 +30,29 @@
     <div>
         @foreach (var post in Model)
         {
-        <a href="ViewPost/@post.PostId">
-            <article>
-                <h2 id="postTitle">@post.Title</h2>
-                <h3 id="postAuthor">@post.Author</h3>
-                <h3 id="postDate">@post.PublishDate</h3>
-                <h3 id="postCategory">@post.Category.Name</h3>
-                <p id="postBody">@post.Body</p>
-                <section id="tags">
-                    @foreach (var postTag in post.PostTags)
-                    {
-                        <p id="postTag">@postTag.Tag.Name</p>
-                    }
-                </section>
-                <form action="/Post/Edit/@post.PostId" method="get">
-                    <input type="submit" value="Edit" />
-                </form>
-                <form action="/Post/Delete/@post.PostId" method="post">
-                    <input type="submit" value="Delete" />
-                </form>
-            </article>
-        </a>
+            <a href="ViewPost/@post.PostId">
+                <article>
+                    <h2 id="postTitle">@post.Title</h2>
+                    <h3 id="postAuthor">@post.Author</h3>
+                    <h3 id="postDate">@post.PublishDate</h3>
+                    <h3 id="postCategory">@post.Category.Name</h3>
+                    <p id="postBody">@post.Body</p>
+                    <section id="tags">
+                        @foreach (var postTag in post.PostTags)
+                        {
+                            <p id="postTag">@postTag.Tag.Name</p>
+                        }
+                    </section>
+                    <form action="/Post/Edit/@post.PostId" method="get">
+                        <input type="submit" value="Edit" />
+                    </form>
+                    <form action="/Post/Delete/@post.PostId" method="post">
+                        <input type="submit" value="Delete" />
+                    </form>
+                </article>
+            </a>
         }
     </div>
+    <footer>&copy; 2019 Bloggy Blog </footer>
 </body>
 </html>
