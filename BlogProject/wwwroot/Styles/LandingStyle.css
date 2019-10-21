@@ -1,6 +1,7 @@
 ﻿html
 {
     background-color : cadetblue;
+
 }
 
 #title {
@@ -43,9 +44,19 @@
 {
     display: flex;
     justify-content: center;
+  
 }
 
 #enter :hover 
 {
     background-color: aquamarine;
+}
+
+footer {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 32px;
+    background: #666;
+    color: #fff;
+    padding: 16px 0;
 }

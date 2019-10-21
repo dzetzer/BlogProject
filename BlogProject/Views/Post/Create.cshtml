@@ -8,6 +8,11 @@
 
 <h4>Post</h4>
 <hr />
+<link rel="stylesheet" href="~/Styles/GeneralStyle.css" />
+
+
+
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create" method="post">
@@ -55,6 +60,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+<footer>&copy; 2019 Bloggy Blog </footer>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
