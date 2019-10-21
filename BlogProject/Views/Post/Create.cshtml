@@ -37,6 +37,15 @@
                 </select>
             </div>
             <div class="form-group">
+                <label asp-for="tagAddId" class="control-label"></label>
+                <select name="TagAddId">
+                    @foreach (var tag in ViewBag.Tags)
+                    {
+                        <option value="@tag.TagId">@tag.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>

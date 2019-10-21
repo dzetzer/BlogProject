@@ -14,6 +14,7 @@ namespace BlogProject.Models
         public string Body { get; set; }
         public string Author { get; set; }
         public DateTime PublishDate { get; set; }
+        public int tagAddId { get; set; }
 
         public virtual IList<PostTag> PostTags { get; set; }
 

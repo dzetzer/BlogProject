@@ -4,14 +4,16 @@ using BlogProject;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BlogProject.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [Migration("20191021144217_PostTagAddId")]
+    partial class PostTagAddId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,8 +34,7 @@ namespace BlogProject.Migrations
                     b.ToTable("Categories");
 
                     b.HasData(
-                        new { CategoryId = 1, Name = "Stuff A" },
-                        new { CategoryId = 2, Name = "Stuff B" }
+                        new { CategoryId = 1, Name = "TestCategory" }
                     );
                 });
 
@@ -62,8 +63,7 @@ namespace BlogProject.Migrations
                     b.ToTable("Posts");
 
                     b.HasData(
-                        new { PostId = 1, Author = "Jane D", Body = "My new dog rocks.", CategoryId = 1, PublishDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Title = "BlaBla", tagAddId = 0 },
-                        new { PostId = 2, Author = "Jane D", Body = "My new dog rocks.", CategoryId = 2, PublishDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Title = "Loving My New Dog!", tagAddId = 0 }
+                        new { PostId = 1, Author = "Jane D", Body = "My new dog rocks.", CategoryId = 1, PublishDate = new DateTime(2019, 10, 21, 3, 42, 16, 621, DateTimeKind.Local), Title = "Loving My New Dog!", tagAddId = 0 }
                     );
                 });
 
@@ -93,8 +93,7 @@ namespace BlogProject.Migrations
                     b.ToTable("Tags");
 
                     b.HasData(
-                        new { TagId = 1, Name = "Tag A" },
-                        new { TagId = 2, Name = "Tag B" }
+                        new { TagId = 1, Name = "TestTag" }
                     );
                 });
 

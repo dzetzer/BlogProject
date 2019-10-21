@@ -12,16 +12,19 @@ namespace BlogProject.Controllers
     {
         IRepository<Post> postRepo;
         IRepository<Category> categoryRepo;
+        IRepository<Tag> tagRepo;
 
-        public PostController(IRepository<Post> postRepo, IRepository<Category> categoryRepo)
+        public PostController(IRepository<Post> postRepo, IRepository<Category> categoryRepo, IRepository<Tag> tagRepo)
         {
             this.postRepo = postRepo;
             this.categoryRepo = categoryRepo;
+            this.tagRepo = tagRepo;
         }
 
         [HttpGet]
         public ViewResult Create()
         {
+            ViewBag.Tags = tagRepo.GetAll();
             ViewBag.Categories = categoryRepo.GetAll();
             return View();
         }
@@ -29,6 +32,14 @@ namespace BlogProject.Controllers
         [HttpPost]
         public ActionResult Create(Post post)
         {
+            post.PostTags = new List<PostTag>()
+            {
+                new PostTag()
+                {
+                    Post = post,
+                    Tag = tagRepo.GetByID(post.tagAddId)
+                }
+            };
             post.PublishDate = DateTime.Now;
             postRepo.Create(post);
             return RedirectToAction("BrowseAll","Browse");
