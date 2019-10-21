@@ -28,11 +28,11 @@
             }
         </section>
     </nav>
-    <div>
+    <div id="body">
         @foreach (var post in Model)
         {
-            <a href="ViewPost/@post.PostId">
-                <article>
+            <a href="/Browse/ViewPost/@post.PostId">
+                <article class="post">
                     <h2 id="postTitle">@post.Title</h2>
                     <h3 id="postAuthor">@post.Author</h3>
                     <h3 id="postDate">@post.PublishDate</h3>
