@@ -14,16 +14,17 @@
 <body>
     <nav>
         <article><a href="/Post/Create">New Post</a></article>
+        <article><a href="/Browse/BrowseAll">All</article>
         <section>
             @foreach (var category in ViewBag.Categories)
             {
-                <article><a href="BrowseByCategory/@category.CategoryId">@category.Name</a></article>
+                <article><a href="/Browse/BrowseByCategory/@category.CategoryId">@category.Name</a></article>
             }
         </section>
         <section>
             @foreach (var tag in ViewBag.Tags)
             {
-                <article><a href="BrowseByTag/@tag.TagId">@tag.Name</a></article>
+                <article><a href="/Browse/BrowseByTag/@tag.TagId">@tag.Name</a></article>
             }
         </section>
     </nav>
